@@ -29,13 +29,13 @@
 
         <cfset response = deserializeJSON(cfhttp.filecontent)>
 		    <cfif response.success>
-           <!--- Check to see if captcha passes.  .75 and above is usually good, the higher the value, the more sure captcha is that it's valid -->
+           <!--- Check to see if captcha passes.  .75 and above is usually good, the higher the value, the more sure captcha is that it's valid --->
            <cfif response.score gte .75>
               <!--- Send email here, store in DB, etc --->
               <cfset success = true>
            </cfif>
         <cfelse>
-             <!--- CAPTCHA FAILS - ACT ACCORDINGLY  -->
+             <!--- CAPTCHA FAILS - ACT ACCORDINGLY  --->
         </cfif>
 
    
@@ -51,7 +51,7 @@
       <h4>Thank you for your submission. We will be in contact with you shortly.</h4>
     <cfelse>
             <form id="contactform" class="contactform" action="" method="post">
-                <!-- Field that the JS code will insert a  code to send to Google -->
+                <!--- Field that the JS code will insert a  code to send to Google --->
                 <input type="hidden" id="grc" name="grc" value="">
                 <p><button class="btn btn-primary" type="button" name="submitrequest" id="submitrequest">Submit Request</button></p>
                 <input type="hidden" name="actiontype" value="submit">
